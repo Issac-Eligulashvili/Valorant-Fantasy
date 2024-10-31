@@ -1,0 +1,35 @@
+body,
+html {
+     height: 100vh;
+}
+
+@font-face {
+     font-family: 'Bold';
+     src: url('THE\ BOLD\ FONT\ -\ FREE\ VERSION\ -\ 2023.otf');
+}
+
+.bold {
+     font-family: 'Bold';
+}
+
+.signUp {
+     background: linear-gradient(#FD4556, #8C2931);
+}
+
+.heading {
+     font-size: 5rem;
+}
+
+.text-secondary {
+     color: #EAEAEA !important;
+}
+
+.input-group label {
+     color: #EAEAEA;
+}
+
+.input-group input {
+     height: 77px;
+     border-radius: 31px !important;
+     border: none;
+}
