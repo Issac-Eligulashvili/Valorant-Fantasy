@@ -8,6 +8,13 @@ html {
      src: url('THE\ BOLD\ FONT\ -\ FREE\ VERSION\ -\ 2023.otf');
 }
 
+.raleway {
+     font-family: "Raleway", sans-serif;
+     font-optical-sizing: auto;
+     font-weight: 650;
+     font-style: normal;
+}
+
 .bold {
      font-family: 'Bold';
 }
@@ -32,4 +39,24 @@ html {
      height: 77px;
      border-radius: 31px !important;
      border: none;
+     font-size: 25px;
+     padding: 20px;
+}
+
+#signInButton {
+     background-color: white;
+     padding: 20px;
+     border-radius: 50px;
+     color: #8C2931;
+     border: none;
+}
+
+#signInButton:hover {
+     cursor: pointer;
+     background-color: #EAEAEA;
+}
+
+#signInButton:active {
+     cursor: pointer;
+     background-color: #b9b9b9;
 }

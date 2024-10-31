@@ -4,18 +4,30 @@ let supabaseAPIKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const database = supabase.createClient(url, supabaseAPIKey);
 
-const login = async () => {
-     console.log(database);
+const signUpFunction = async (email, password, username) => {
      let response = await database
-          .from("users")
-          .select()
-          .then(({ data, error }) => {
-               if (error) {
-                    console.log('There was an error retreving data');
-               } else {
-                    console.log(data);
-               }
-          });
+          .auth.signUp({
+               email: email,
+               password: password,
+          })
+     if (response.error) {
+          alert('There was an error signing up');
+     }
+
+     const sigma = await database.from("users").insert({
+          username: username,
+          email: email,
+          id: response.data.user.id,
+     });
+
+     window.location.href = 'index.html'
+
 }
 
-login();
+$('#signInButton').on('click', () => {
+     let email = $('.signUp').find('#emailInput').val();
+     let password = $('.signUp').find('#passwordInput').val();
+     let username = $('.signUp').find('#usernameInput').val();
+     signUpFunction(email, password, username);
+})
+
