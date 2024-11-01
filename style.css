@@ -133,12 +133,13 @@ a.sidebar-link .material-symbols-outlined {
 }
 
 .settingsInput {
-     background-color: transparent;
      border: none;
      border-bottom: 2px solid white;
-     color: white;
+     color: #8C2931;
      width: 60%;
      min-width: 185px;
+     padding: 10px;
+     border-radius: 10px;
 }
 
 .settingsInput:active,
@@ -148,4 +149,29 @@ a.sidebar-link .material-symbols-outlined {
 
 .settingsLabel {
      font-size: 12px;
+}
+
+.logoutButton {
+     padding: 10px;
+     display: flex;
+     align-items: center;
+     color: white;
+     background: transparent;
+     border: white solid 3px;
+     border-radius: 10px;
+     transition: all .2s;
+}
+
+.logoutButton:hover {
+     background: white;
+     color: #8C2931;
+}
+
+.logoutButton:active {
+     background: rgb(199, 198, 198);
+     color: #8C2931;
+}
+
+.logoutButton span {
+     margin-left: 5px;
 }

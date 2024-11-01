@@ -47,13 +47,14 @@ const signInFunction = async (email, password) => {
      } else {
           console.log('User successfully')
           console.log(response.data);
+
+          window.location.href = 'index.html';
      }
 }
 
 $('#logInButton').on('click', () => {
      let email = $('.logIn').find('#emailInput').val();
      let password = $('.logIn').find('#passwordInput').val();
-     console.log(email, password);
      signInFunction(email, password);
 })
 
@@ -63,9 +64,15 @@ async function checkUser() {
 
      if (response.data.user) {
           console.log('there is a user logged in right now');
+          console.log(response.data.user);
      } else {
-          console.log('no user currently logged in');
+          window.location.href = "login.html";
+
      }
 }
 
-checkUser();
+async function logout() {
+     await supabase.auth.signOut()
+}
+
+$('#logoutButton').on('click', logout);

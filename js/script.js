@@ -6,10 +6,9 @@ const database = supabase.createClient(url, supabaseAPIKey);
 
 //getting the userdata after logging in/signing up
 $(document).ready(async function () {
-     const user = localStorage.getItem('user');
-     console.log(user);
-     let { data, error } = await database.from("users").select('username').eq('id', user);
-     console.log(data);
+     const response = await database.auth.getUser();
+     user = response.data.user;
+     let { data, error } = await database.from("users").select('username').eq('id', user.id);
 
      $('#usernameText').text(`${data[0].username}`)
 
