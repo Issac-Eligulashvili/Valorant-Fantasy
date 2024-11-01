@@ -19,7 +19,8 @@ html {
      font-family: 'Bold';
 }
 
-.signUp {
+.signUp,
+.logIn {
      background: linear-gradient(#FD4556, #8C2931);
 }
 
@@ -43,7 +44,8 @@ html {
      padding: 20px;
 }
 
-#signInButton {
+#signInButton,
+#logInButton {
      background-color: white;
      padding: 20px;
      border-radius: 50px;
@@ -51,12 +53,14 @@ html {
      border: none;
 }
 
-#signInButton:hover {
+#signInButton:hover,
+#logInButton:hover {
      cursor: pointer;
      background-color: #EAEAEA;
 }
 
-#signInButton:active {
+#signInButton:active,
+#logInButton:active {
      cursor: pointer;
      background-color: #b9b9b9;
 }

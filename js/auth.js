@@ -19,16 +19,15 @@ const signUpFunction = async (email, password, username) => {
 
      const userID = response.data.user.id
 
-     localStorage.setItem('user', userID);
-
      await database.from("users").insert({
           username: username,
           email: email,
           id: userID,
      })
-     window.location.href = 'index.html'
+     window.location.href = 'login.html';
 }
 
+//adding the signup functionality to the signup button
 $('#signInButton').on('click', () => {
      let email = $('.signUp').find('#emailInput').val();
      let password = $('.signUp').find('#passwordInput').val();
@@ -36,3 +35,37 @@ $('#signInButton').on('click', () => {
      signUpFunction(email, password, username);
 })
 
+//creating login functionality
+const signInFunction = async (email, password) => {
+     let response = await database
+          .auth.signInWithPassword({
+               email: email,
+               password: password,
+          });
+     if (response.error) {
+          alert('Incorrect email or password');
+     } else {
+          console.log('User successfully')
+          console.log(response.data);
+     }
+}
+
+$('#logInButton').on('click', () => {
+     let email = $('.logIn').find('#emailInput').val();
+     let password = $('.logIn').find('#passwordInput').val();
+     console.log(email, password);
+     signInFunction(email, password);
+})
+
+//check if there is an active user right now and if not redirect to the login page.
+async function checkUser() {
+     let response = await database.auth.getUser();
+
+     if (response.data.user) {
+          console.log('there is a user logged in right now');
+     } else {
+          console.log('no user currently logged in');
+     }
+}
+
+checkUser();
