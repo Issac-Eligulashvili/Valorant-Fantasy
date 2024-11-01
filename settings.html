@@ -18,7 +18,7 @@
 
 <body class="mainBody">
      <div class="wrapper d-flex h-100">
-          <aside id="sidebar">
+          <aside id="sidebar" class="position-absolute h-100">
                <ul class="sidebar-nav p-0">
                     <li class="sidebar-item">
                          <a href="" class="sidebar-link">
@@ -52,9 +52,24 @@
                     </a>
                </div>
           </aside>
+
+          <div class="container-fluid settingsContainer">
+               <div class="row h-100 p-5 m-0">
+                    <div class="col-9">
+                         <h1 class="bold text-white">Account Settings</h1>
+                         <p class="raleway text-white mt-3">Your login email / phone number & password allow you to
+                              authenticate yourself and use
+                              AgentSelect on multiple devices. Never give out your credentials to anyone!</p>
+                         <div class="inputCont d-flex flex-column">
+                              <label for="email" class="text-white settingsLabel">E-mail</label>
+                              <input type="email" id="settingsEmailInput" class="settingsInput"
+                                   placeholder="Enter your email" name="email">
+                         </div>
+                    </div>
+                    <div class="col-3"></div>
+               </div>
+          </div>
      </div>
-     <!-- place footer here -->
-     </footer>
      <!-- Bootstrap JavaScript Libraries -->
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
           integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

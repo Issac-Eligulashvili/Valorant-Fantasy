@@ -60,3 +60,88 @@ html {
      cursor: pointer;
      background-color: #b9b9b9;
 }
+
+.mainBody {
+     background: #4c161b;
+}
+
+#sidebar {
+     width: 70px;
+     min-width: 70px;
+     z-index: 1000;
+     transition: .25s all;
+     display: flex;
+     flex-direction: column;
+     background-color: #8C2931;
+     padding: 2rem 0;
+     ;
+}
+
+#sidebar.expand {
+     width: 260px;
+     min-width: 260px;
+}
+
+#sidebar:not(.expand) a.sidebar-link p {
+     display: none;
+}
+
+.sidebar-nav {
+     flex: 1 1 auto;
+     margin: 0;
+}
+
+ul {
+     list-style-type: none;
+}
+
+a.sidebar-link {
+     display: flex;
+     font-size: 0.9rem;
+     text-decoration: none;
+     padding: 2rem 0;
+     padding-left: 20px;
+}
+
+a.sidebar-link p {
+     display: flex;
+     align-items: center;
+     margin: 0 10px;
+     color: white;
+     white-space: nowrap;
+}
+
+#sidebar:not(.expand) a.sidebar-link {
+     align-items: center;
+}
+
+a.sidebar-link:hover {
+     background-color: #7f363d;
+}
+
+a.sidebar-link .material-symbols-outlined {
+     font-size: 2rem;
+     color: white;
+}
+
+.settingsContainer {
+     padding: 3rem 0 0 70px;
+}
+
+.settingsInput {
+     background-color: transparent;
+     border: none;
+     border-bottom: 2px solid white;
+     color: white;
+     width: 60%;
+     min-width: 185px;
+}
+
+.settingsInput:active,
+.settingsInput:focus {
+     outline: none;
+}
+
+.settingsLabel {
+     font-size: 12px;
+}
