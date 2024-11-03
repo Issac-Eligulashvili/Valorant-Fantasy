@@ -62,17 +62,32 @@ $('#logInButton').on('click', () => {
 async function checkUser() {
      let response = await database.auth.getUser();
 
-     if (response.data.user) {
-          console.log('there is a user logged in right now');
-          console.log(response.data.user);
-     } else {
+     if (!response.data.user) {
           window.location.href = "login.html";
-
      }
 }
 
-async function logout() {
-     await supabase.auth.signOut()
+$('#logoutButton').on('click', async () => {
+     await database.auth.signOut();
+     checkUser();
+});
+
+async function changeUsername() {
+     let user = await database.auth.getUser();
+     user = user.data.user;
+
+     let username = $('#settingsUsernameInput').val();
+
+     const response = await database.from("users").update({
+          username: username,
+     }).eq('id', user.id);
+
+     if (response.error) {
+          console.log(response.error);
+     } else {
+          $('#usernameSuccess').html('<i>Successfully changed username!</i>')
+          $('#usernameText').text(`${username}`);
+     }
 }
 
-$('#logoutButton').on('click', logout);
+$('#saveButton').on('click', changeUsername);

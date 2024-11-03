@@ -6,16 +6,29 @@ const database = supabase.createClient(url, supabaseAPIKey);
 
 //getting the userdata after logging in/signing up
 $(document).ready(async function () {
-     const response = await database.auth.getUser();
-     user = response.data.user;
+     checkUser();
+     let user = await database.auth.getUser();
+     user = user.data.user;
      let { data, error } = await database.from("users").select('username').eq('id', user.id);
 
-     $('#usernameText').text(`${data[0].username}`)
+     $('#usernameText').text(`${data[0].username}`);
 
      $("#sidebar").on('mouseenter', () => {
           $("#sidebar").toggleClass('expand');
      }).on('mouseleave', () => {
           $("#sidebar").toggleClass('expand');
      })
+
+     $('#accountSettingsBtn').on('click', () => {
+          $('#settingsRow').children('.col-9').addClass('d-none');
+          $('#accountSettings').removeClass('d-none');
+     })
+
+     $('#profileSettingsBtn').on('click', () => {
+          $('#settingsRow').children('.col-9').addClass('d-none');
+          $('#profileSettings').removeClass('d-none');
+     })
+
+
 });
 

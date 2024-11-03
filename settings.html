@@ -54,8 +54,8 @@
           </aside>
 
           <div class="container-fluid settingsContainer">
-               <div class="row h-100 p-5 m-0">
-                    <div class="col-9">
+               <div class="row h-100 p-5 m-0" id="settingsRow">
+                    <div class="col-9" id="accountSettings">
                          <h1 class="bold text-white">Account Settings</h1>
                          <p class="raleway text-white mt-3">Your login email / phone number & password allow you to
                               authenticate yourself and use
@@ -64,11 +64,6 @@
                               <label for="email" class="text-white settingsLabel">E-mail</label>
                               <input type="email" id="settingsEmailInput" class="settingsInput"
                                    placeholder="Enter your email" name="email">
-                         </div>
-                         <div class="inputCont d-flex flex-column mt-5">
-                              <label for="username" class="text-white settingsLabel">Change Username</label>
-                              <input type="text" id="settingsUsernameInput" class="settingsInput"
-                                   placeholder="Change username" name="username">
                          </div>
                          <div class="inputCont d-flex flex-column mt-5">
                               <label for="username" class="text-white settingsLabel">Change Password</label>
@@ -81,7 +76,29 @@
                               </span>
                          </button>
                     </div>
-                    <div class="col-3"></div>
+                    <div class="col-9 d-none" id="profileSettings">
+                         <h1 class="bold text-white">Profile Settings</h1>
+                         <p class="raleway text-white mt-3">Customize your username and profile picture!</p>
+                         <div class="inputCont d-flex flex-column">
+                              <label for="username" class="text-white settingsLabel">Change Username</label>
+                              <input type="text" id="settingsUsernameInput" class="settingsInput"
+                                   placeholder="Change username" name="username">
+                              <p id="usernameSuccess" class="text-secondary"></p>
+                              <button class="saveButton bold mt-5" id="saveButton">
+                                   save
+                              </button>
+                         </div>
+                    </div>
+                    <div class="col-3 border-start">
+                         <p class="raleway text-white mt-3 mb-0">Account</p>
+                         <div class="linkButton text-white raleway-light p-2" id="accountSettingsBtn">
+                              Account Settings
+                         </div>
+                         <p class="raleway text-white mt-3 mb-0">Profile</p>
+                         <div class="linkButton text-white raleway-light p-2" id="profileSettingsBtn">
+                              Profile Settings
+                         </div>
+                    </div>
                </div>
           </div>
      </div>

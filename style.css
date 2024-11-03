@@ -160,6 +160,20 @@ a.sidebar-link .material-symbols-outlined {
      border: white solid 3px;
      border-radius: 10px;
      transition: all .2s;
+     width: fit-content;
+}
+
+.saveButton {
+     padding: 10px 50px;
+     display: flex;
+     align-items: center;
+     color: white;
+     background: transparent;
+     border: white solid 3px;
+     border-radius: 10px;
+     transition: all .2s;
+     width: fit-content;
+     letter-spacing: 2px;
 }
 
 .logoutButton:hover {
@@ -174,4 +188,314 @@ a.sidebar-link .material-symbols-outlined {
 
 .logoutButton span {
      margin-left: 5px;
+}
+
+.linkButton {
+     border-radius: 10px;
+}
+
+.linkButton:hover {
+     background-color: #601b22;
+     cursor: pointer;
+}
+
+.player-card-team-image {
+     height: 150px;
+     left: 200px;
+     top: 100px;
+     transform: translate(-50%, -50%);
+}
+
+.player-card-team-image svg {
+     height: 150px;
+     stroke-width: 5px;
+     fill-opacity: 0.6;
+     stroke-opacity: 0.6;
+}
+
+.player-card-info-container {
+     z-index: 2;
+}
+
+.player-card-player-image {
+     width: 200px;
+}
+
+/* all teams and their respective logo styling and background styling */
+.LOUDBG {
+     background: #0ecc00;
+}
+
+.LOUDLogo {
+     stroke: black;
+}
+
+.SentinelsBG {
+     background: #9f002b;
+}
+
+.SentinelsLogo {
+     stroke: black;
+}
+
+.All_GamersBG {
+     background: #ae1414;
+}
+
+.All_GamersLogo {
+     stroke: black;
+     stroke-width: 15px !important;
+}
+
+.Bilibili_GamingBG {
+     background-color: #2dabc8;
+}
+
+.Bilibili_GamingLogo {
+     stroke: white;
+     stroke-width: 2px !important;
+}
+
+.Dragon_Ranger_GamingBG {
+     background-color: #5fc24e;
+}
+
+.Dragon_Ranger_GamingLogo {
+     stroke: none !important;
+}
+
+.EDGBG {
+     background-color: #231915;
+}
+
+.EDGLogo {
+     stroke: none;
+     stroke-width: 1px !important;
+}
+
+.FPXBG {
+     background-color: #ba0c00;
+}
+
+.FPXLogo {
+     stroke: black;
+}
+
+.JD_GamingBG {
+     background-color: #971026;
+}
+
+.JD_GamingLogo {
+     stroke: white;
+     stroke-width: 2px !important;
+}
+
+.Nova_EsportsBG {
+     background-color: #a455ba;
+}
+
+.One00_ThievesBG {
+     background-color: #bb2727;
+}
+
+.One00_ThievesLogo {
+     stroke: white !important;
+     stroke-width: 10px !important;
+}
+
+.BBL_EsportsBG {
+     background: #c4aa76;
+}
+
+.Cloud9BG {
+     background: #208ebd;
+}
+
+.Cloud9Logo {
+     stroke: white;
+     stroke-width: 10px !important;
+}
+
+.DRXBG {
+     background: rgb(12, 2, 127);
+}
+
+.DRXLogo {
+     stroke: white;
+     stroke-width: 1px !important;
+}
+
+.DetonatioN_FocusMeBG {
+     background: #1c4fbd;
+}
+
+.DetonatioN_FocusMeLogo {
+     stroke: white;
+}
+
+.Evil_GeniusesBG {
+     background: #040b6a;
+}
+
+.Evil_GeniusesLogo {
+     stroke: white;
+     stroke-opacity: 1 !important;
+     stroke-width: 10px !important;
+}
+
+.FURIA_EsportsBG {
+     background: #3a4155;
+}
+
+.FnaticBG {
+     background-color: #ca4700;
+}
+
+.FnaticLogo {
+     stroke: white;
+     stroke-width: 10px;
+}
+
+.G2BG {
+     background: #b22e1a;
+}
+
+.G2Logo {
+     stroke: none;
+     stroke-width: 1.5px !important;
+}
+
+.GIANTXBG {
+     background: #0984ed;
+}
+
+.GIANTXLogo {
+     stroke: white;
+}
+
+.GenGBG {
+     background: #aa8b30;
+}
+
+.GenGLogo {
+     stroke: black;
+     stroke-width: 1px !important;
+}
+
+.Global_EsportsBG {
+     background: #45354d;
+}
+
+.KRU_EsportsBG {
+     background: #cf1374;
+}
+
+.KRU_EsportsLogo {
+     stroke: black;
+     stroke-width: 7px !important;
+}
+
+.Karmine_CorpBG {
+     background: #08ceff;
+}
+
+.KOIBG {
+     background: #6a31be;
+}
+
+.LeviatanBG {
+     background: #25364a;
+}
+
+.MIBRBG {
+     background-color: #0e163a;
+}
+
+.MIBRLogo {
+     stroke: white;
+}
+
+.NAVIBG {
+     background: #c5bb29;
+}
+
+.PRXBG {
+     background: #d70e95;
+}
+
+.RRQBG {
+     background: #241910;
+}
+
+.T1BG {
+     background: black;
+}
+
+.TYLOOBG {
+     background: black;
+}
+
+.Talon_EsportsBG {
+     background-color: #c2003a;
+}
+
+.Talon_EsportsLogo {
+     stroke: black;
+}
+
+.Team_HereticsBG {
+     background: #b7901e;
+}
+
+.Team_LiquidBG {
+     background-color: #0e1b26;
+}
+
+.Team_LiquidLogo {
+     stroke: #4d563e;
+     stroke-width: 20px !important;
+}
+
+.Team_SecretBG {
+     background-color: black;
+}
+
+.Team_SecretLogo {
+     fill: white;
+}
+
+.Team_VitalityBG {
+     background-color: #867700;
+}
+
+.Titan_Esports_ClubBG {
+     background-color: #1b1a21;
+}
+
+.Trace_EsportsBG {
+     background-color: #364585;
+}
+
+.Wolves_EsportsBG {
+     background-color: #FDB913;
+}
+
+.ZETA_DIVISIONBG {
+     background-color: black;
+}
+
+.ZETA_DIVISIONLogo {
+     fill: white;
+}
+
+.FUT_EsportsBG {
+     background: black;
+}
+
+.NRG_EsportsBG {
+     background-color: #c9273f;
+}
+
+.player-card-player-image-container {
+     min-width: 270px;
 }
