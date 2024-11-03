@@ -211,9 +211,6 @@ async function displayPlayers(region) {
           })
      }
 
-
-
-
      fetch(url).then(response => response.text())
           .then(svgContent => {
                let modidifiedContent = svgContent.replace('<svg', `<svg class="${team}Logo"`);
@@ -223,8 +220,6 @@ async function displayPlayers(region) {
                $('#loudLogo').append(modidifiedContent);
           });
 }
-
-displayPlayers();
 
 //code to get players
 // const url = `https://liquipedia.net/valorant/${teamName}`;
