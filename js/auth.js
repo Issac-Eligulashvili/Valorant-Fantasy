@@ -135,7 +135,7 @@ async function getLeaguesUserIsIn() {
      })
      leaguesUserIsIn.forEach(league => {
           $('#leaguesUserIsIn').append(`
-               <a class="sidebar-link league-link">
+               <a class="sidebar-link league-link" href="league.html">
                     <span><img src="img/icons/game.png" style="width: 24px"></span>
                     <p class="raleway">
                          ${league['league-name']}
