@@ -309,7 +309,6 @@ button.sidebar-link .material-symbols-outlined {
 
 .league-info-container {
      background-color: #601b22;
-     height: 200px;
      border-radius: 10px;
 }
 
@@ -318,6 +317,10 @@ button.sidebar-link .material-symbols-outlined {
      justify-content: center;
      align-items: center;
      border-radius: 5px;
+}
+
+.leagueNavLink:hover {
+     cursor: pointer;
 }
 
 .leagueNavLinkBG {
@@ -336,6 +339,38 @@ button.sidebar-link .material-symbols-outlined {
 .invFriendsLinkContainer {
      background: #7b212a;
      border-radius: 10px;
+}
+
+#leagueInvLinkInput {
+     background-color: #7c3e44;
+     padding: 10px;
+     border-radius: 10px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+#copyLeagueLink {
+     background-color: #361216;
+     height: fit-content;
+     padding: 5px;
+     border-radius: 5px;
+}
+
+#copyLeagueLink:hover {
+     cursor: pointer;
+}
+
+#leagueLink {
+     width: 100%;
+     background-color: transparent;
+     border: none;
+     color: white;
+}
+
+#leagueLink:focus-visible {
+     border: none;
+     outline: none;
 }
 
 /* all teams and their respective logo styling and background styling */

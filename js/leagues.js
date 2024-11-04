@@ -27,14 +27,21 @@ async function getFirstLeague() {
 
 async function buildLeagueHTML() {
      const currentLeagueData = await getFirstLeague();
+     let players = currentLeagueData.teamsPlaying;
 
      if (currentLeagueData.isDrafted) {
           console.log('draft was done');
      } else {
-
+          $('#leagueLink').val(`http://127.0.0.1:5500/join/${currentLeagueData.leagueID}`)
+          $('#playersNeeded').text(`${players.length} / ${currentLeagueData.numPlayers}`)
      }
 }
 
 $(document).ready(function () {
      buildLeagueHTML();
+     $('#copyLeagueLink').on('click', () => {
+          let link = $('#leagueLink');
+          link.select();
+          document.execCommand('copy');
+     })
 });
