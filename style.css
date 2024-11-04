@@ -373,6 +373,12 @@ button.sidebar-link .material-symbols-outlined {
      outline: none;
 }
 
+#playersInLeague {
+     background-color: #7b212a;
+     padding: 10px;
+     border-radius: 10px;
+}
+
 /* all teams and their respective logo styling and background styling */
 .LOUDBG {
      background: #0ecc00;
