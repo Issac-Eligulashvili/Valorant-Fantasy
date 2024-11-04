@@ -14,9 +14,9 @@ $(document).ready(async function () {
      $('#usernameText').text(`${data[0].username}`);
 
      $("#sidebar").on('mouseenter', () => {
-          $("#sidebar").toggleClass('expand');
+          $("#sidebar").addClass('expand');
      }).on('mouseleave', () => {
-          $("#sidebar").toggleClass('expand');
+          $("#sidebar").removeClass('expand');
      })
 
      $('#accountSettingsBtn').on('click', () => {
@@ -29,6 +29,10 @@ $(document).ready(async function () {
           $('#profileSettings').removeClass('d-none');
      })
 
-
+     $('.leagueNavLink').on('click', function (e) {
+          $('.leagueNavLink').removeClass().addClass('leagueNavLink');
+          $('.leagueNavLink').not(this).addClass('col-1');
+          $(this).addClass('col-3 activeLeagueNavLink')
+     })
 });
 

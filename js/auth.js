@@ -91,3 +91,59 @@ async function changeUsername() {
 }
 
 $('#saveButton').on('click', changeUsername);
+
+//league creation
+async function createLeague() {
+     let leagueName = $('#leagueNameInput').val();
+     let numTeams = $('#numOfTeamsForLeague').val();
+     let user = await database.auth.getUser();
+     user = user.data.user;
+
+     let username = await database.from('users').select('username').eq('id', user.id);
+     username = username.data[0].username;
+
+     let availablePlayersData = await database.from('players').select('player');
+     let available_players = [];
+     availablePlayersData.data.forEach(player => {
+          available_players.push(player.player);
+     });
+
+     const response = await database.from('leagues').insert({
+          'league-name': leagueName,
+          numPlayers: numTeams,
+          teamsPlaying: [{
+               playerID: user.id,
+               playerName: username,
+               team: [],
+          }],
+          'available_players': available_players,
+     })
+}
+
+$('#createLeagueButton').on('click', async () => {
+     createLeague();
+})
+
+async function getLeaguesUserIsIn() {
+     let user = await database.auth.getUser();
+     user = user.data.user;
+
+     const leagues = await database.from('leagues').select('');
+
+     const leaguesUserIsIn = leagues.data.filter(league => {
+          return league.teamsPlaying.find(player => player.playerID === user.id);
+     })
+     leaguesUserIsIn.forEach(league => {
+          $('#leaguesUserIsIn').append(`
+               <a class="sidebar-link league-link">
+                    <span><img src="img/icons/game.png" style="width: 24px"></span>
+                    <p class="raleway">
+                         ${league['league-name']}
+                    </p>
+               </a>
+          `)
+     })
+}
+
+getLeaguesUserIsIn();
+

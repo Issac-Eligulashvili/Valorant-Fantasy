@@ -165,27 +165,48 @@ async function displayPlayers(region) {
                return player.region === region;
           })
 
-          console.log(filteredPlayersByRegion);
-
           filteredPlayersByRegion.forEach(player => {
                const name = player.player;
-               const position = player.position;
+               const positions = player.position;
                let team = player.team;
+               let team_abbr = player.team_abbr;
                let link = player.image_link;
                let modifiedContent;
+               let positionsContent = '<div class="d-flex">';
 
                let url = `https://issac-eligulashvili.github.io/logo-images/${team}.svg`;
-
-               console.log(url);
                fetch(url).then(response => response.text())
                     .then(svgContent => {
                          if (team === '100_Thieves') {
                               team = 'One00_Thieves';
                          }
+
+                         if (team === 'Gen.G_Esports') {
+                              team = 'GenG';
+                         }
+
+                         if (region === 'Europe') {
+                              region = 'EMEA'
+                         }
+
                          modifiedContent = svgContent.replace('<svg', `<svg class="${team}Logo"`);
                          if (team === 'ZETA_DIVISION') {
                               modifiedContent = modifiedContent.replace('width="30"', 'width="150')
                          }
+
+                         positions.forEach((position, index) => {
+                              if (index === 0) {
+                                   positionsContent += `
+                         <img src="img/icons/${position}ClassSymbol.png" class="player-card-role-icon">
+                         `
+                              } else {
+                                   positionsContent += `
+                         <img src="img/icons/${position}ClassSymbol.png" class="player-card-role-icon ms-2">
+                         `
+                              }
+                         })
+
+                         console.log(positionsContent);
 
                          const card = `
                <div class="player-card-container w-100 raleway text-white">
@@ -195,11 +216,30 @@ async function displayPlayers(region) {
                               ${modifiedContent}
                          </div>
                          <div class="player-card-info-container d-flex pt-2 w-100">
-                              <div class="player-card-player-image-container">
+                              <div class="player-card-player-image-container position-relative">
                                    <img src="${link}" class="player-card-player-image">
+                                   <div class="player-card-role-container">
+                                        <div class="d-flex player-role-info">
+                                             <h3 class="my-0 me-2" style="opacity: 0.9">Role:</h3>
+                                             ${positionsContent}</div>
+                                        </div>
+                                        <div class="player-card-role-end"></div>
+                                   </div>
                               </div>
-                              <div class="flex-grow-1">
+                              <div class="flex-grow-1 py-4">
                                    <h1>${name}</h1>
+                                   <div class="mt-3 player-card-stats-container">
+                                        <div class="pe-2">
+                                             <h6 class="m-0 text-center subtext">Region</h6>
+                                             <h3 class="text-center">${region}</h3>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="px-2">
+                                             <h6 class="m-0 text-center subtext">Team</h6>
+                                             <h3 class="text-center">${team_abbr}</h3>
+                                        </div>
+                                        <div class="divider"></div>
+                                   </div>
                               </div>
                          </div>
                     </div>

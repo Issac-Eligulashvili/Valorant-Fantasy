@@ -44,6 +44,27 @@ html {
      padding: 20px;
 }
 
+.input-leauge-group input {
+     height: 40px;
+     border-radius: 31px !important;
+     border: none;
+     font-size: 15px;
+     padding: 20px;
+}
+
+.input-leauge-group label {
+     font-size: 13px;
+}
+
+.input-leauge-group select {
+     height: 40px;
+     border-radius: 31px !important;
+     border: none;
+     padding: 0 20px;
+     color: black;
+     width: 50%;
+}
+
 #signInButton,
 #logInButton {
      background-color: white;
@@ -53,14 +74,27 @@ html {
      border: none;
 }
 
+#createLeagueButton {
+     background-color: white;
+     padding: 10px 5px;
+     border-radius: 50px;
+     color: #8C2931;
+     border: none;
+     width: 80%;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+}
+
 #signInButton:hover,
-#logInButton:hover {
+#logInButton:hover,
+#createLeagueButton:hover {
      cursor: pointer;
      background-color: #EAEAEA;
 }
 
 #signInButton:active,
-#logInButton:active {
+#logInButton:active,
+#createLeagueButton:active {
      cursor: pointer;
      background-color: #b9b9b9;
 }
@@ -90,6 +124,10 @@ html {
      display: none;
 }
 
+#sidebar:not(.expand) button.sidebar-link p {
+     display: none;
+}
+
 .sidebar-nav {
      flex: 1 1 auto;
      margin: 0;
@@ -107,7 +145,27 @@ a.sidebar-link {
      padding-left: 20px;
 }
 
+button.sidebar-link {
+     display: flex;
+     font-size: 0.9rem;
+     text-decoration: none;
+     padding: 2rem 0;
+     padding-left: 20px;
+     background-color: transparent;
+     border: none;
+     width: 100%;
+     align-items: center;
+}
+
 a.sidebar-link p {
+     display: flex;
+     align-items: center;
+     margin: 0 10px;
+     color: white;
+     white-space: nowrap;
+}
+
+button.sidebar-link p {
      display: flex;
      align-items: center;
      margin: 0 10px;
@@ -123,10 +181,20 @@ a.sidebar-link:hover {
      background-color: #7f363d;
 }
 
+button.sidebar-link:hover {
+     background-color: #7f363d;
+}
+
 a.sidebar-link .material-symbols-outlined {
-     font-size: 2rem;
+     font-size: 1.5rem;
      color: white;
 }
+
+button.sidebar-link .material-symbols-outlined {
+     font-size: 1.5rem;
+     color: white;
+}
+
 
 .settingsContainer {
      padding: 3rem 0 0 70px;
@@ -219,6 +287,55 @@ a.sidebar-link .material-symbols-outlined {
 
 .player-card-player-image {
      width: 200px;
+}
+
+.modal {
+     background: rgba(255, 255, 255, 0.2);
+     --bs-modal-bg: #4c161b;
+     color: white;
+}
+
+.btn-close {
+     background: url(img/icons/x.svg) center center/1em auto no-repeat;
+}
+
+.modal-body {
+     padding: 0rem 6rem 1rem;
+}
+
+.modal-footer {
+     padding: 1rem 4rem;
+}
+
+.league-info-container {
+     background-color: #601b22;
+     height: 200px;
+     border-radius: 10px;
+}
+
+.leagueNavLink {
+     font-size: 13px;
+     justify-content: center;
+     align-items: center;
+     border-radius: 5px;
+}
+
+.leagueNavLinkBG {
+     background-color: #FD4556;
+     border-radius: inherit;
+     padding: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.leagueNavLink:not(.activeLeagueNavLink) p {
+     display: none;
+}
+
+.invFriendsLinkContainer {
+     background: #7b212a;
+     border-radius: 10px;
 }
 
 /* all teams and their respective logo styling and background styling */
@@ -419,7 +536,7 @@ a.sidebar-link .material-symbols-outlined {
      background: #c5bb29;
 }
 
-.PRXBG {
+.Paper_RexBG {
      background: #d70e95;
 }
 
@@ -498,4 +615,41 @@ a.sidebar-link .material-symbols-outlined {
 
 .player-card-player-image-container {
      min-width: 270px;
+}
+
+.player-card-stats-container {
+     display: grid;
+     grid-template-columns: 1fr 3px 1fr 3px;
+     grid-template-rows: 1fr;
+     width: fit-content;
+}
+
+.subtext {
+     opacity: 0.55;
+}
+
+.divider {
+     opacity: 0.3;
+     background: white;
+     height: 100%;
+     width: 100%;
+}
+
+.player-card-role-icon {
+     height: 25px;
+}
+
+.player-card-role-container {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     display: flex;
+     width: 100%;
+}
+
+.player-role-info {
+     background: rgba(0, 0, 0, 0.6);
+     padding: 5px 10px;
+     align-items: center;
+     width: 100%;
 }
