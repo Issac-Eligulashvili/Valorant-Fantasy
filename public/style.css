@@ -399,6 +399,63 @@ button.sidebar-link .material-symbols-outlined {
      height: 10px;
 }
 
+.toastMessage {
+     visibility: hidden;
+     min-width: 250px;
+     margin-left: -125px;
+     background-color: rgba(51, 51, 51, 0.5);
+     color: #fff;
+     text-align: center;
+     border-radius: 10px;
+     padding: 16px;
+     position: fixed;
+     z-index: 1;
+     left: 50%;
+     bottom: 30px;
+     font-size: 17px;
+     opacity: 0;
+     transition: opacity 0.5s;
+}
+
+.toastMessage.show {
+     visibility: visible;
+     /* Show the toast */
+     opacity: 1;
+     /* Fully visible */
+}
+
+.filterBtnContainer {
+     width: fit-content;
+     padding: 3px 10px;
+     border-radius: 20px;
+     background-color: #7b212a;
+}
+
+.filterAvailablePlayersBtn {
+     border-radius: 20px;
+     padding: 2px 0.5rem;
+     display: flex;
+     align-items: center;
+     height: fit-content;
+}
+
+.filterAvailablePlayersBtn.active {
+     background-color: #bb2727;
+}
+
+.filterAvailablePlayersBtn:hover {
+     cursor: pointer;
+}
+
+#currentAvailablePlayersTable tr:nth-child(even) {
+     background-color: #4b0f0f;
+}
+
+.table-container::-webkit-scrollbar {
+     display: none;
+     /* Chrome, Safari, and Edge */
+}
+
 /* all teams and their respective logo styling and background styling */
 .LOUDBG {
      background: #0ecc00;
