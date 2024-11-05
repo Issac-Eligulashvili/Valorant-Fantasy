@@ -99,6 +99,79 @@ $(document).ready(async function () {
           })
      })
 
+     $('#leagueContentContainer').on('click', '#leagueNavDraft', async function () {
+
+          let currentLeagueDataID = sessionStorage.getItem('currentLeagueID');
+
+          const response = await database.from('leagues').select('').eq('leagueID', currentLeagueDataID);
+
+          let currentLeagueData = response.data[0];
+          let players = currentLeagueData.teamsPlaying;
+
+          $('#leagueCurrentContent').html(`
+               <div class="invFriendsLinkContainer p-3 mt-4">
+                                        <div class="d-flex justify-content-between">
+                                             <div>
+                                                  <h6 class="mb-0">Invite friends to play</h6>
+                                                  <p class="subtext" style="font-size: 12px;">Copy the link and share with
+                                                       your
+                                                       friends</p>
+                                             </div>
+                                             <div>
+                                                  <h6 id="playersNeeded">
+                                                       ${players.length} / ${currentLeagueData.numPlayers}
+                                                  </h6>
+                                             </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                             <div id="leagueInvLinkInput">
+                                                  <label for="leagueLink"></label>
+                                                  <input class="m-0" id="leagueLink" name="leagueLink" type="text"></input>
+                                                  <div id="copyLeagueLink" class="d-flex">
+                                                       <span class="material-symbols-outlined">
+                                                            content_copy
+                                                       </span>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="mt-4 d-flex flex-column flex-grow-1 overflow-y-hidden">
+                                   <div id="playersInLeague" class="d-flex flex-column overflow-y-hidden">
+                                             <div>
+                                                  <h6 class="mb-0">Teams in league</h6>
+                                                  <p class="subtext m-0" style="font-size: 12px;">This is the list of all
+                                                  current
+                                                  teams</p>
+                                             </div>
+                                             <ol class="mt-3 playersInLeagueList overflow-y-scroll">
+                                             </ol>
+                                        </div>
+                                   </div>   
+          `)
+
+          $('#leagueLink').val(`http://localhost:3000/join/${currentLeagueData.leagueID}`);
+
+          for (i = 0; i < currentLeagueData.numPlayers; i++) {
+               let player = players[i];
+               console.log(player);
+               if (player) {
+                    if (i === 0) {
+                         $('.playersInLeagueList').append(`<li>
+                              ${player.playerName}
+                              <img src="img/icons/crown.png">
+                              </li>`);
+                    } else {
+                         $('.playersInLeagueList').append(`<li>
+                              ${player.playerName}
+                              </li>`);
+                    }
+               } else {
+                    $('.playersInLeagueList').append(`<li>Team ${i + 1}</li>`)
+               }
+          }
+     })
+
      $('#leagueContentContainer').on('click', '.filterAvailablePlayersBtn', async function (e) {
           $('.filterAvailablePlayersBtn').removeClass('active');
           $(e.target).addClass('active');
@@ -147,10 +220,6 @@ $(document).ready(async function () {
                $('#currentAvailablePlayersTable').append(row);
           })
      })
-
-
-
-
 
 
      function showToast() {

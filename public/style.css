@@ -379,6 +379,12 @@ button.sidebar-link .material-symbols-outlined {
      border-radius: 10px;
 }
 
+.playersInLeagueList::-webkit-scrollbar {
+     display: none;
+     /* Chrome, Safari, and Edge */
+}
+
+
 .playersInLeagueList {
      list-style-type: none;
      counter-reset: list-counter;
