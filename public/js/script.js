@@ -138,7 +138,7 @@ $(document).ready(async function () {
 
                const row = `
                     <tr>
-                         <td class="ps-2">${player.player}</td>
+                         <td class="ps-2 p-1">${player.player}</td>
                          <td>${player['team_abbr']}</td>
                          <td>${region}</td>
                     </tr>
