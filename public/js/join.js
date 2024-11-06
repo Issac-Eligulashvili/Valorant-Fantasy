@@ -36,6 +36,7 @@ $(document).ready(async function () {
                          playerID: user.id,
                          playerName: username,
                          team: [],
+                         isAdmin: false,
                     })
 
                     const response = await database.from('leagues').update({ teamsPlaying: players }).eq('leagueID', uniqueID);

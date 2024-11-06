@@ -319,7 +319,7 @@ button.sidebar-link .material-symbols-outlined {
      border-radius: 5px;
 }
 
-.leagueNavLink:hover {
+.pointer:hover {
      cursor: pointer;
 }
 
@@ -330,6 +330,7 @@ button.sidebar-link .material-symbols-outlined {
      display: flex;
      align-items: center;
      justify-content: center;
+     height: 100%;
 }
 
 .leagueNavLink:not(.activeLeagueNavLink) p {
@@ -355,10 +356,6 @@ button.sidebar-link .material-symbols-outlined {
      height: fit-content;
      padding: 5px;
      border-radius: 5px;
-}
-
-#copyLeagueLink:hover {
-     cursor: pointer;
 }
 
 #leagueLink {
@@ -449,10 +446,6 @@ button.sidebar-link .material-symbols-outlined {
      background-color: #bb2727;
 }
 
-.filterAvailablePlayersBtn:hover {
-     cursor: pointer;
-}
-
 #currentAvailablePlayersTable tr:nth-child(even) {
      background-color: #4b0f0f;
 }
@@ -460,6 +453,12 @@ button.sidebar-link .material-symbols-outlined {
 .table-container::-webkit-scrollbar {
      display: none;
      /* Chrome, Safari, and Edge */
+}
+
+.deleteLeagueBtn {
+     width: fit-content;
+     background-color: #FD4556;
+     border-radius: 5px;
 }
 
 /* all teams and their respective logo styling and background styling */

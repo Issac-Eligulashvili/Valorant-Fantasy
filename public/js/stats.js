@@ -1,17 +1,19 @@
-const apiKey = '65QDNHhlJ9DpoFuMqOXnwEaLIXaYqYdzfs0doMYBmxRM3JNa0uk';
+async function getLeagues() {
+     try {
+          const response = await fetch('http://localhost:3000/api/leagues');
+          const data = await response.json();
 
-const tournamentURL = 'https://api.pandascore.co/valorant/tournaments';
-const playersURL = 'https://api.pandascore.co/valorant/players';
+          const VCTLeagues = data[0];
 
-const options = {
-     method: 'GET',
-     headers: {
-          accept: 'application/json',
-          authorization: 'Bearer 65QDNHhlJ9DpoFuMqOXnwEaLIXaYqYdzfs0doMYBmxRM3JNa0uk'
+          const filteredByYear = VCTLeagues.series.filter(serie => {
+               return serie.year === 2024 && serie.name.indexOf('Game Changers') === -1;
+          })
+
+          console.log(filteredByYear);
+
+     } catch (error) {
+          console.error('Error fetching players:', error);
      }
-};
+}
 
-fetch('https://api.pandascore.co/valorant/leagues?sort=id&page=1&per_page=50', options)
-     .then(res => res.json())
-     .then(res => console.log(res))
-     .catch(err => console.error(err));
+getLeagues();

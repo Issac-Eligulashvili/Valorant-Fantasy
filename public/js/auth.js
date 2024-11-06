@@ -115,6 +115,7 @@ async function createLeague() {
                playerID: user.id,
                playerName: username,
                team: [],
+               isAdmin: true,
           }],
           'available_players': available_players,
      })

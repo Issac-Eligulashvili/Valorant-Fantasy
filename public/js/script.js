@@ -38,25 +38,25 @@ $(document).ready(async function () {
      $('#leagueContentContainer').on('click', '#leagueNavPlayers', async function () {
           $('#leagueCurrentContent').html(`
                <div class="d-flex mt-4 filterBtnContainer">
-                    <div class="filterAvailablePlayersBtn active">
+                    <div class="filterAvailablePlayersBtn active pointer">
                          All
                     </div>
-                    <div class="filterAvailablePlayersBtn">
+                    <div class="filterAvailablePlayersBtn pointer">
                          IGL
                     </div>
-                    <div class="filterAvailablePlayersBtn">
+                    <div class="filterAvailablePlayersBtn pointer">
                          Duelist
                     </div>
-                    <div class="filterAvailablePlayersBtn">
+                    <div class="filterAvailablePlayersBtn pointer">
                          Controller
                     </div>
-                    <div class="filterAvailablePlayersBtn">
+                    <div class="filterAvailablePlayersBtn pointer">
                          Sentinel
                     </div>
-                    <div class="filterAvailablePlayersBtn">
+                    <div class="filterAvailablePlayersBtn pointer">
                          Initiator
                     </div>
-                    <div class="filterAvailablePlayersBtn">
+                    <div class="filterAvailablePlayersBtn pointer">
                          Flex
                     </div>
                </div>
@@ -137,7 +137,7 @@ $(document).ready(async function () {
                                         </div>
                                    </div>
                                    <div class="mt-4 d-flex flex-column flex-grow-1 overflow-y-hidden">
-                                   <div id="playersInLeague" class="d-flex flex-column overflow-y-hidden">
+                                        <div id="playersInLeague" class="d-flex flex-column overflow-y-hidden">
                                              <div>
                                                   <h6 class="mb-0">Teams in league</h6>
                                                   <p class="subtext m-0" style="font-size: 12px;">This is the list of all
@@ -148,7 +148,24 @@ $(document).ready(async function () {
                                              </ol>
                                         </div>
                                    </div>   
-          `)
+                                   <div class="modal fade" id="confirmLeagueDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                             <div class="modal-content">
+                                                  <div class="modal-header">
+                                                       <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                       ...
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                       <button type="button" class="btn btn-primary">Save changes</button>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+          `);
 
           $('#leagueLink').val(`http://localhost:3000/join/${currentLeagueData.leagueID}`);
 
@@ -219,6 +236,12 @@ $(document).ready(async function () {
 
                $('#currentAvailablePlayersTable').append(row);
           })
+     })
+
+     $('#leagueContentContainer').on('click', '#deleteLeagueBtn', async () => {
+          let currentLeagueResponse = await database.from('leagues').delete('').eq('leagueID', sessionStorage.getItem('currentLeagueID'));
+          sessionStorage.removeItem('currentLeagueID');
+          location.reload();
      })
 
 
